@@ -192,7 +192,7 @@ class PlayState extends MusicBeatState
 	private var camGame:FlxCamera;
 	private var camTransition:FlxCamera;
 
-	var dialogue:Array<String> = ['blah blah blah', 'coolswag'];
+	var dialogue:Array<String> = ['blah blah blah', 'coolswag', 'this is a placeholder text, nothing interesting'];
 
 	var pixelStages:Array<String> = ['school', 'schoolEvil']; // da pixel stages
 	var specialStages:Array<String> = ['limo', 'mall', 'mallEvil']; // da custom bg stages
@@ -324,15 +324,17 @@ class PlayState extends MusicBeatState
 	public var dadStrumAmount = 4;
 	public var playerStrumAmount = 4;
 
-	// var banbiWindowNames:Array<String> = [
-	// 	'when you realize you have school this monday',
-	// 	'industrial society and its future',
-	// 	'my ears burn',
-	// 	'i got that weed card',
-	// 	'my ass itch',
-	// 	'bruh',
-	// 	'alright instagram its shoutout time'
-	// ];
+     var banbiWindowNames:Array<String> = [
+ 	'when you realize you have school this monday',
+ 	'industrial society and its future',
+ 	'my ears burn',
+ 	'i got that weed card',
+ 	'my ass itch',
+ 	'bruh',
+ 	'alright instagram its shoutout time',
+	'its expungin time',
+	'this is not psych engine'
+     ];
 
 	override public function create()
 	{
@@ -1703,7 +1705,7 @@ class PlayState extends MusicBeatState
 		}
 		if (noMiss)
 		{
-			scoreTxt.text += " | NO MISS!!";
+			scoreTxt.text += " | Practice Mode";
 		}
 		if (FlxG.keys.justPressed.ENTER && startedCountdown && canPause)
 		{
@@ -3031,22 +3033,6 @@ class PlayState extends MusicBeatState
 		#if SHADERS_ENABLED
 		wiggleShit.update(Conductor.crochet);
 		#end
-
-		if (curSong.toLowerCase() == 'milf' && curBeat >= 168 && curBeat < 200 && camZooming && FlxG.camera.zoom < 1.35)
-		{
-			FlxG.camera.zoom += 0.015;
-			camHUD.zoom += 0.03;
-		}
-		if (camZooming && curBeat % 4 == 0)
-		{
-			FlxG.camera.zoom += 0.015;
-			camHUD.zoom += 0.03;
-		}
-
-		if (curBeat % 8 == 7 && curSong == 'Bopeebo')
-		{
-			boyfriend.playAnim('hey', true);
-		}
 
 		if (curBeat % 16 == 15 && SONG.song == 'Tutorial' && dad.curCharacter == 'gf' && curBeat > 16 && curBeat < 48)
 		{
